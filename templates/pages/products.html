@@ -39,7 +39,7 @@
 
                 {% for product in products %}
                 <div class="col-lg-6 col-md-6 item-entry mb-4">
-                    <a href="#" class="product-item md-height bg-gray d-block">
+                    <a href="{{product.get_absolute_url}}" class="product-item md-height bg-gray d-block">
                         <img src="{{product.image.url}}" alt="Image" class="img-fluid">
                     </a>
                     <h2 class="item-title"><a href="#">{{product.name | title}}</a></h2>
