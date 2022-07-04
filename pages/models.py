@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from ckeditor.fields import RichTextField
 
 
 # Create your models here.
@@ -21,7 +22,7 @@ class Category(models.Model):
 class Product(models.Model):
     category = models.ForeignKey(Category, related_name='product_category' , on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
-    description = models.TextField(blank=True, null=True)
+    description = RichTextField(blank=True, null=True)
     image = models.ImageField(upload_to = 'images/%Y-%m-%d.jpg', blank= True, null=True)
     slug = models.SlugField(max_length=255)
     price = models.IntegerField()
