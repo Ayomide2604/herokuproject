@@ -28,7 +28,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pages',
+    'accounts',
     'ckeditor',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -123,3 +125,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 #login redirect url
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'login'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

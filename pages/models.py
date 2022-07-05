@@ -1,6 +1,9 @@
+from datetime import date
+from time import timezone
 from django.db import models
 from django.urls import reverse
 from ckeditor.fields import RichTextField
+from django.utils import timezone
 
 
 # Create your models here.
@@ -39,3 +42,17 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         return reverse('product', args=[self.slug])
+
+
+class Team(models.Model):
+    name = models.CharField(max_length=255)
+    position = models.CharField(max_length=255)
+    image = models.ImageField(upload_to ='team/%Y/%m/%d')
+    description = models.TextField(blank=True, null=True)
+    date_employed = models.DateTimeField(default= timezone.now)
+
+    class Meta:
+        verbose_name_plural = ('Teams')
+        ordering = ('-date_employed',)
+    def __str__(self):
+        return self.name 

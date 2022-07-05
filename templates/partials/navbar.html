@@ -23,6 +23,9 @@
             <nav class="site-navigation text-right text-md-center" role="navigation">
               <ul class="site-menu js-clone-nav d-none d-lg-block">
                 <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'about_us' %}">About</a></li>
+                
+
                 <li class="has-children active">
                   <a href="">Categories</a>
                   <ul class="dropdown">
@@ -41,7 +44,7 @@
                 <li><a href="{% url 'logout' %}">Logout</a></li>
                 {% else %}
                 <li><a href="{% url 'login' %}">Login</a></li>
-                <li><a href="">Sign Up</a></li>
+                <li><a href="{% url 'signup' %}">Sign Up</a></li>
                 {% endif %}
 
 

@@ -1,8 +1,9 @@
+from re import L
 from stringprep import in_table_a1
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView,DetailView
 
-from .models import Product, Category
+from .models import Product, Category, Team
 
 
 
@@ -34,3 +35,8 @@ def category_detail(request, slug):
 
     return render(request, 'pages/category.html', context)
 
+class AboutView(ListView):
+    model = Team
+    template_name = 'pages/about.html'
+    context_object_name = 'team'
+    

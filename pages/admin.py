@@ -15,8 +15,12 @@ class ProductAdmin(admin.ModelAdmin):
     list_display_links = ('name', 'id', )
     prepopulated_fields= {'slug': ('name',)}
 
+class TeamAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'position')
+
 
 
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(Team, TeamAdmin)
