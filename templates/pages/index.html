@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load humanize %}
 {% block content %}
 
 
@@ -16,7 +17,7 @@
             </div>
           </div>
           <div class="col-md-6 order-1 align-self-end">
-            <img src="{%static 'images/model_6.png'%}" alt="Image" class="img-fluid">
+            <img src="{% static 'images/model_2.png'%}" alt="Image" class="img-fluid">
           </div>
         </div>
       </div>
@@ -31,11 +32,11 @@
         {% for product in products %}
         
         <div class="col-lg-4 col-md-6 item-entry mb-4">
-          <a href="#" class="product-item md-height bg-gray d-block">
+          <a href="{{product.get_absolute_url}}" class="product-item md-height bg-gray d-block">
             <img src="{{product.image.url}}" alt="Image" class="img-fluid">
           </a>
           <h2 class="item-title"><a href="#">{{product.name}}</a></h2>
-          <strong class="item-price">${{product.price}}</strong>
+          <strong class="item-price">₦{{product.price | intcomma}}</strong>
         </div>
         {% endfor %}
 

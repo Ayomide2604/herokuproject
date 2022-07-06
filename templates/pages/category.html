@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load humanize %}
 {% block content %}
 
 
@@ -33,8 +34,8 @@
                 <a href="{{product.get_absolute_url}}" class="product-item md-height bg-gray d-block">
                     <img src="{{product.image.url}}" alt="Image" class="img-fluid">
                 </a>
-                <h2 class="item-title"><a href="#">{{product.name}}</a></h2>
-                <strong class="item-price">${{product.price}}</strong>
+                <h2 class="item-title"><a href="#">{{product.name | title}}</a></h2>
+                <strong class="item-price">₦{{product.price | intcomma}}</strong>
             </div>
             {% endfor %}
 

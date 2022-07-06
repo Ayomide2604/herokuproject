@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load humanize %}
 {% block content %}
 <div class="site-section">
       <div class="container">
@@ -16,8 +16,8 @@
 
           <div class="col-md-6">
             <h2 class="text-black">{{product.name}}</h2>
-            <p class="mb-4">{{product.description}}</p>
-            <p><strong class="text-primary h4">${{product.price}}</strong></p>
+            <p class="mb-4">{{product.description |safe}}</p>
+            <p><strong class="text-primary h4">₦{{product.price | intcomma}}</strong></p>
             <div class="mb-1 d-flex">
               <label for="option-sm" class="d-flex mr-3 mb-3">
                 <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-sm" name="shop-sizes"></span> <span class="d-inline-block text-black">Small</span>
