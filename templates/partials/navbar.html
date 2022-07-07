@@ -16,18 +16,18 @@
         <div class="d-flex align-items-center justify-content-between">
           <div class="logo">
             <div class="site-logo">
-              <a href="" class="js-logo-clone">Parle NG</a>
+              <a href="{% url 'index' %}" class="js-logo-clone">Parle NG</a>
             </div>
           </div>
           <div class="main-nav d-none d-lg-block">
             <nav class="site-navigation text-right text-md-center" role="navigation">
               <ul class="site-menu js-clone-nav d-none d-lg-block">
-                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a class="has-children active" href="{% url 'index' %}">Home</a></li>
                 <li><a href="{% url 'about_us' %}">About</a></li>
                 
 
-                <li class="has-children active">
-                  <a href="">Categories</a>
+                <li class="has-children">
+                  <a class="disabled">Categories</a>
                   <ul class="dropdown">
                     {% for category in categories %}
                     <li><a href="{{category.get_absolute_url}}">{{category.name}}</a></li>    
@@ -37,10 +37,10 @@
                
                 
                 
-                <li><a href="{% url 'products' %}">All Products</a></li>
+                <li><a href="{% url 'products' %}">Products</a></li>
                 <li><a href="">Contact</a></li>
                 {% if user.is_authenticated %}
-                <li><a href="">Welcome {{user.username}}</a></li> </a></li>
+                <li><a href="">Welcome ({{user.username}})</a></li> </a></li>
                 <li><a href="{% url 'logout' %}">Logout</a></li>
                 {% else %}
                 <li><a href="{% url 'login' %}">Login</a></li>
@@ -63,3 +63,5 @@
         </div>
       </div>
     </div>
+
+    {% include 'partials/alerts.html' %}

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load humanize %}
 {% block content %}
    <div class="site-section">
       <div class="container">
@@ -9,7 +9,7 @@
 
             <div class="row align">
               <div class="col-md-12 mb-5">
-                <div class="float-md-left"><h2 class="text-black h5">Shop All</h2></div>
+                <div class="float-md-left"><h2 class="text-black 1">Latest Products</h2></div>
                 <div class="d-flex">
                   <div class="dropdown mr-1 ml-md-auto">
                     <button type="button" class="btn btn-white btn-sm dropdown-toggle px-4" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -43,20 +43,53 @@
                         <img src="{{product.image.url}}" alt="Image" class="img-fluid">
                     </a>
                     <h2 class="item-title"><a href="#">{{product.name | title}}</a></h2>
-                    <strong class="item-price">${{product.price}}</strong>
+                    <strong class="item-price">₦{{product.price | intcomma}}</strong>
                 </div>
                 {% endfor %}
+              </div>
+              <div class="row">
+                <div class="col-md-12 text-center">
+                  <div class="site-block-27">
+                                 
+                    {% if is_paginated %}
+                    <ul class="pagination">
+                      {% if page_obj.has_previous %}
+                        <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+                      {% else %}
+                        <li class="disabled"><span>&laquo;</span></li>
+                      {% endif %}
+                      {% for i in paginator.page_range %}
+                        {% if page_obj.number == i %}
+                          <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                        {% else %}
+                          <li><a href="?page={{ i }}">{{ i }}</a></li>
+                        {% endif %}
+                      {% endfor %}
+                      {% if page_obj.has_next %}
+                        <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+                      {% else %}
+                        <li class="disabled"><span>&raquo;</span></li>
+                      {% endif %}
+                    </ul>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            </div>
+      
+            </div>
+          </div>
+
+
+                
                 
            
              
 
               
-
-        </div>
-
-      </div>
-    </div>
-
+      
 
 
 {% endblock  %}

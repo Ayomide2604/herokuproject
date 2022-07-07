@@ -21,7 +21,7 @@ class ProductView(ListView):
     model = Product
     template_name = 'pages/products.html'
     context_object_name = 'products'
-    paginate_by = 9
+    paginate_by = 8
 
 def product_detail(request, slug):
     product = get_object_or_404(Product, slug=slug, in_stock=True)

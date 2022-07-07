@@ -5,9 +5,10 @@
           <h3 class="footer-heading mb-4">Connect With Us</h3>
           <div class="col-md-6 col-lg-4">
             <ul class="list-unstyled">
-              <li><a href="#"><i class="icomoon icon-facebook-f"></i></a></li>
-              <li><a href="#"><i class="icomoon icon-twitter"></i></a></li>
-              <li><a href="#"><i class="icomoon icon-instagram"></i></a></li>
+              <li><a class="" href=""><i class="fa-brands fa-facebook-f"> <br><br> Facebook</i></a></li>
+              <li><a href="https://twitter.com/theparlebrandng"><i class="fa-brands fa-twitter"> <br><br> Twitter</i></a></li>
+              <li><a href="https://www.instagram.com/theparlebrandng/"><i class="fa-brands fa-instagram"><br><br> Instagram</i></a></li>
+            
 
             </ul>
           </div>
@@ -19,8 +20,8 @@
             </div>
             <div class="col-md-6 col-lg-4">
               <ul class="list-unstyled">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="{% url 'index' %}"> Home</a></li>
+                <li><a href="{% url 'about_us' %}">About</a></li>
                 <li><a href="#">Contact Us</a></li>
                 {% if user.is_authenticated  %}
 
