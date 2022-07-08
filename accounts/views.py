@@ -15,14 +15,12 @@ class SignUpView(SuccessMessageMixin,CreateView):
     success_message = 'Your account has been created successfully'
    
 
-class PasswordChangeView(PasswordChangeView):
+class PasswordChangeView(SuccessMessageMixin,PasswordChangeView):
     form_class = PasswordChangingForm
     success_url = reverse_lazy('password_change_success')
     template_name = 'accounts/password_change_form.html'
-    login_url = 'login'
-    redirect_field_name = 'index'
-    permission_denied_message = 'You must be logged in to change your password'
-
+    success_message = 'Your password has been changed successfully'
+    
 
 class PasswordChangeSuccessView(PasswordChangeDoneView):
     template_name = ('accounts/password_change_done.html')
