@@ -24,3 +24,5 @@ class TeamAdmin(admin.ModelAdmin):
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Team, TeamAdmin)
+admin.site.register(UserItem)
+

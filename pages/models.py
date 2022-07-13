@@ -4,7 +4,7 @@ from django.db import models
 from django.urls import reverse
 from ckeditor.fields import RichTextField
 from django.utils import timezone
-
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Category(models.Model):
@@ -47,8 +47,8 @@ class Product(models.Model):
 class Team(models.Model):
     name = models.CharField(max_length=255)
     position = models.CharField(max_length=255)
-    image = models.ImageField(upload_to ='team/%Y/%m/%d')
-    description = models.TextField(blank=True, null=True)
+    image = models.ImageField(upload_to ='team/%Y/%m/%d', default='/default.png/')
+    description = RichTextField(blank=True, null=True)
     date_employed = models.DateTimeField(default= timezone.now)
 
     class Meta:
@@ -56,3 +56,18 @@ class Team(models.Model):
         ordering = ('-date_employed',)
     def __str__(self):
         return self.name 
+
+class UserItem(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
+    added = models.DateTimeField(auto_now_add=True)
+
+
+    def __str__(self):
+        return self.product.name
+
+
+
+
+

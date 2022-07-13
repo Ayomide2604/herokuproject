@@ -1,8 +1,7 @@
-from re import L
-from stringprep import in_table_a1
+from multiprocessing import context
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import ListView,DetailView
-
+from django.views.generic import ListView,TemplateView
+from django.contrib.auth.decorators import login_required
 from .models import Product, Category, Team
 
 
@@ -24,8 +23,9 @@ class ProductView(ListView):
     paginate_by = 8
 
 def product_detail(request, slug):
+    products = Product.objects.order_by('-date_created').filter(in_stock = True)
     product = get_object_or_404(Product, slug=slug, in_stock=True)
-    context = {'product': product}
+    context = {'product': product, 'products': products}
     return render(request, 'pages/product.html', context)
 
 def category_detail(request, slug):
@@ -39,4 +39,9 @@ class AboutView(ListView):
     model = Team
     template_name = 'pages/about.html'
     context_object_name = 'team'
-    
+
+@login_required  
+def cart(request):
+    products = Product.objects.order_by('-date_created').filter(in_stock = True)
+    context = {'products': products}
+    return render(request, 'pages/cart.html', context)

@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'ckeditor',
     'crispy_forms',
+    'django_unicorn',
 ]
 
 MIDDLEWARE = [
@@ -125,7 +126,7 @@ MEDIA_URL= '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 #login redirect url
-LOGIN_REDIRECT_URL = 'index'
+LOGIN_REDIRECT_URL = 'dashboard'
 LOGOUT_REDIRECT_URL = 'login'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

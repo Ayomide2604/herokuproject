@@ -131,9 +131,16 @@ a {
   padding-left: 10px;
   padding-right: 10px;
   border: 2px solid #25262a;
-  color: #000 !important; }
+  color: #000 !important;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-top: -6px;
+}
   .site-logo a:hover {
-    text-decoration: none; }
+    text-decoration: none; 
+  }
 
 .icons-btn {
   display: inline-block;

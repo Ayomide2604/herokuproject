@@ -1729,6 +1729,30 @@ var widgetsSlider = $.widget( "ui.slider", $.ui.mouse, {
 	}
 } );
 
+$('.addToCartBtn').click(function (e) {
+	e.preventDefault();
+});
+
+var product_id = $(this).closest('.product_data').find('.product_id').val();
+var product_qty = $(this).closest('.product_data').find('.qty-input').val();
+var token = $('input[name="csrfmiddlewaretoken"]').val();
+$ajax({
+	method: "POST",
+	url: "/add-to-cart",
+	data: {
+		'product_id': product_id,
+		'product_qty': product_qty,
+		csrfmiddleware_token: token 
+
+	}, 	
+	success: function(response) {
+		console.log(response)
+	}
+
+
+});
+
+
 
 
 

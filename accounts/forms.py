@@ -1,6 +1,8 @@
 
+from dataclasses import fields
+import filecmp
 from django import forms
-from django .contrib. auth.forms import UserCreationForm,PasswordChangeForm
+from django .contrib. auth.forms import UserCreationForm,PasswordChangeForm, PasswordResetForm, UserChangeForm
 from django.contrib.auth.models import User
 
 class UserCreatingForm(UserCreationForm):
@@ -26,3 +28,15 @@ class PasswordChangingForm(PasswordChangeForm):
     class Meta:
         model = User 
         fields = ('old_password', 'new_password1', 'new_password2')
+
+class PasswordResetForm(PasswordResetForm):
+    
+    class Meta:
+        model = User 
+        
+        
+class ChangeDetailsForm(UserChangeForm):
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'email')
+    
