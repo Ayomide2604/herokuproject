@@ -34,7 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'ckeditor',
     'crispy_forms',
-    
+
 ]
 
 MIDDLEWARE = [

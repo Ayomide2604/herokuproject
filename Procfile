@@ -1,1 +1,3 @@
-web: gunicorn ayomide.wsgi 
+web: gunicorn ayomide.wsgi:application --log-file - --log-level debug
+python manage.py collectstatic --noinput
+manage.py migrate
