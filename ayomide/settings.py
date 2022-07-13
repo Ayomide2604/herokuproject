@@ -28,12 +28,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pages',
+    'django_unicorn',
     'contact',
     'accounts.apps.AccountsConfig',
     'django.contrib.humanize',
     'ckeditor',
     'crispy_forms',
-    'django_unicorn',
+    
 ]
 
 MIDDLEWARE = [
